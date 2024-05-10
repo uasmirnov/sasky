@@ -73,7 +73,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
                     'initials': initials(name),
                 }
             )
-        elif type == 'update2':
+        elif type == 'update_writing_unactive':
             await self.channel_layer.group_send(
                 self.room_group_name, {
                     'type': 'writing_unactive',

@@ -128,7 +128,7 @@ chatInputElement.addEventListener('focusin', (event) =>  {
 
 chatInputElement.addEventListener('focusout', (event) =>  {
     chatSocket.send(JSON.stringify({
-        'type': 'update2',
+        'type': 'update_writing_unactive',
         'message': 'writing_unactive',
         'name': document.querySelector('#user_name').textContent.replaceAll('"', ''),
         'agent': document.querySelector('#user_id').textContent.replaceAll('"', ''),
