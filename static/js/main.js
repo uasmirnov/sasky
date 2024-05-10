@@ -113,7 +113,7 @@ function onChatMessage(data) {
         if (join) {
             join.remove()
         }
-        chatLogElement.innerHTML += '<p id="join" class="mt-2 text-xs">The admin/agent has joined the chat.</p>'
+        chatLogElement.innerHTML += '<p id="join" class="mt-2 text-xs">The manager has joined the chat.</p>'
     } else if (data.type === 'writing_active') {
         if (data.agent) {
             let tmpInfo = document.querySelector('.tmp-info')
@@ -122,7 +122,7 @@ function onChatMessage(data) {
                 tmpInfo.remove()
             }
 
-            chatLogElement.innerHTML += '<p class="mt-2 tmp-info text-xs">The admin/agent is writing a messages...</p>'
+            chatLogElement.innerHTML += '<p class="mt-2 tmp-info text-xs">The manager is typing...</p>'
         }
     } else if (data.type === 'writing_unactive') {
         if (data.agent) {
@@ -217,3 +217,19 @@ chatInputElement.onkeyup = function (e) {
         sendMessage()
     }
 }
+
+chatInputElement.addEventListener('focusin', (event) =>  {
+    chatSocket.send(JSON.stringify({
+        'type': 'update',
+        'message': 'writing_active',
+        'name': chatName,
+    }))
+})
+
+chatInputElement.addEventListener('focusout', (event) =>  {
+    chatSocket.send(JSON.stringify({
+        'type': 'update_writing_unactive',
+        'message': 'writing_unactive',
+        'name': chatName,
+    }))
+})

@@ -41,6 +41,12 @@ function onChatMessage(data) {
     console.log('onChatMessage', data)
 
     if (data.type === 'chat_message') {
+        let tmpInfo = document.querySelector('.tmp-info')
+
+        if (tmpInfo) {
+            tmpInfo.remove()
+        }
+
         if (!data.agent) {
             chatLogElement.innerHTML += `
                 <div class="flex w-full mt-2 space-x-3 max-w-md">
@@ -73,6 +79,24 @@ function onChatMessage(data) {
                     </div>
                 </div>
             `
+        }
+    } else if (data.type === 'writing_active') {
+        if (!data.agent) {
+            let tmpInfo = document.querySelector('.tmp-info')
+
+            if (tmpInfo) {
+                tmpInfo.remove()
+            }
+
+            chatLogElement.innerHTML += '<p class="mt-2 tmp-info text-xs justify-end">The client is typing...</p>'
+        }
+    } else if (data.type === 'writing_unactive') {
+        if (!data.agent) {
+            let tmpInfo = document.querySelector('.tmp-info')
+
+            if (tmpInfo) {
+                tmpInfo.remove()
+            }
         }
     }
 
