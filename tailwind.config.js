@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -8,7 +10,14 @@ module.exports = {
     './static/js/*.js',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'custom-button': '#2B4D6E',
+      },
+      fontFamily: {
+        "sans": ['Poppins', 'sans-serif']
+      }
+    },
   },
   plugins: [],
 }
