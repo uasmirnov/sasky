@@ -39,11 +39,20 @@
 
             <main class="max-w-6xl mx-auto p-6">
                 {% if messages %}
-                    <div class="message mb-6 p-6 bg-custom-button text-white rounded-xl">
+                    <div id="message" class="mb-6 p-6 bg-custom-button text-white rounded-xl">
                         {% for message in messages %}
                             <p>{{ message }}</p>
                         {% endfor %}
                     </div>
+
+                    <script>
+                        setTimeout(function() {
+                            let message = document.getElementById('message');
+                            message.style.transition = '.5s';
+                            message.style.opacity = '0';
+                            message.remove();
+                        }, 3500);
+                    </script>
                 {% endif %}
 
                 {% block content %}
