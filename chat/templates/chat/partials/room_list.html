@@ -12,11 +12,11 @@
                 <b>Agent: </b>{% firstof room.agent.name 'None yet...' %}<br>
             </p>
 
-            <a href="{% url 'chat:room' room.uuid %}" class="mt-4 inline-block py-2 px-6 bg-yellow-300 text-black rounded-xl">
+            <a href="{% url 'chat:room' room.uuid %}" class="mt-4 inline-block py-2 px-6 bg-custom-button text-white rounded-xl">
                 {% if room.status == 'waiting' %}
                     Join
                 {% elif room.status == 'closed' %}
-                    Show chat
+                    Show
                 {% else %}
                     Go in
                 {% endif %}
