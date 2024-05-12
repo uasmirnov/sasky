@@ -1,4 +1,4 @@
-<div class="grid grid-cols-4 gap-4">
+<div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
     {% for room in rooms %}
         <div class="p-4 rounded-xl {% if room.status == 'waiting' %}bg-yellow-100{% elif room.status == 'active' %}bg-emerald-100{% else %}bg-gray-100{% endif %}">
             <h3 class="mb-4 text-lg">
