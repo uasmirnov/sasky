@@ -1,14 +1,18 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
-    <h1 class="mb-6 text-2xl">{{ user.name }}</h1>
+    <h1 class="mb-6 text-2xl dark:text-gray-300">{{ user.name }}</h1>
 
     <hr class="my-6">
 
-    <div class="mt-8">
-        <h2 class="mb-4 text-lg">Rooms</h2>
+    {% if rooms|length > 0 %}
+        <div class="mt-8">
+            <h2 class="mb-4 text-lg dark:text-gray-300">Chats</h2>
 
-        {% include 'chat/partials/room_list.html' %}
-    </div>
+            {% include 'chat/partials/room_list.html' %}
+        </div>
+    {% else %}
+        <h2 class="mb-4 text-lg dark:text-gray-300">There are no chats here yet.</h2>
+    {% endif %}
 
 {% endblock %}
