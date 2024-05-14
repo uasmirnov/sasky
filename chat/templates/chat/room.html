@@ -16,7 +16,7 @@
     </p>
 
     <hr class="my-6">
-    <div id="chat_log" class="mb-4 p-4 bg-gray-100 rounded-xl h-[300px] overflow-scroll flex flex-col flex-grow">
+    <div id="chat_log" class="mb-4 p-4 bg-gray-100 dark:bg-gray-600 rounded-xl h-[300px] overflow-scroll flex flex-col flex-grow">
         {% for message in room.messages.all %}
             <div class="flex w-full max-w-md mt-2 space-x-3 {% if message.created_by %}ml-auto justify-end{% endif %}">
                 {% if not message.created_by %}
@@ -30,7 +30,7 @@
                         <p class="text-sm">{{ message.body }}</p>
                     </div>
 
-                    <span class="text-xs text-gray-500 leading-none">
+                    <span class="text-xs text-gray-500 dark:text-gray-300 leading-none">
                         {{ message.created_at|timesince }} ago
                     </span>
                 </div>
@@ -44,7 +44,7 @@
     </div>
 
     {%  if room.status != 'closed' %}
-        <input type="text" name="body" id="chat_message_input" class="w-full mb-4 p-4 bg-gray-100 rounded-xl" placeholder="Type your message...">
+        <input type="text" name="body" id="chat_message_input" class="w-full mb-4 p-4 bg-gray-100 dark:bg-gray-600 rounded-xl dark:text-gray-300 dark:placeholder-gray-400" placeholder="Type your message...">
         <button id="chat_message_submit" class="py-2 px-6 bg-custom-button text-white dark:text-gray-700 dark:bg-gray-200 rounded-xl">Send</button>
     {% endif %}
 {% endblock %}

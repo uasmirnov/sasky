@@ -57,7 +57,7 @@ function onChatMessage(data) {
                         <div class="bg-gray-300 p-3 rounded-l-lg rounded-br-lg">
                             <p class="text-sm">${data.message}</p>
                         </div>
-                        <span class="text-xs text-gray-500 leading-none">
+                        <span class="text-xs text-gray-500 dark:text-gray-300 leading-none">
                             ${data.created_at} ago
                         </span>
                     </div>
@@ -70,7 +70,7 @@ function onChatMessage(data) {
                         <div class="bg-blue-300 p-3 rounded-l-lg rounded-br-lg">
                             <p class="text-sm">${data.message}</p>
                         </div>
-                        <span class="text-xs text-gray-500 leading-none">
+                        <span class="text-xs text-gray-500 dark:text-gray-300 leading-none">
                             ${data.created_at} ago
                         </span>
                     </div>
