@@ -1,18 +1,18 @@
 <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
     {% for room in rooms %}
-        <div class="p-4 rounded-xl {% if room.status == 'waiting' %}bg-yellow-100{% elif room.status == 'active' %}bg-emerald-100{% else %}bg-gray-100 dark:bg-white{% endif %}">
-            <h3 class="mb-4 text-lg dark:text-gray-500">
+        <div class="p-4 rounded-xl {% if room.status == 'waiting' %}bg-yellow-100 dark:bg-yellow-300{% elif room.status == 'active' %}bg-emerald-100 dark:bg-emerald-400{% else %}bg-gray-100 dark:bg-gray-400{% endif %}">
+            <h3 class="mb-4 text-lg text-gray-600 dark:text-gray-700">
                 Chat
             </h3>
 
-            <p>
+            <p class="text-gray-600 dark:text-gray-700">
                 <b>ID: </b>{{ room.uuid }}<br>
                 <b>Name: </b>{{ room.client }}<br>
                 <b>Status: </b>{{ room.get_status_display }}<br>
                 <b>Agent: </b>{% firstof room.agent.name 'None yet...' %}<br>
             </p>
 
-            <a href="{% url 'chat:room' room.uuid %}" class="mt-4 inline-block py-2 px-6 bg-custom-button dark:border dark:border-stone-400 text-white dark:text-gray-700 dark:bg-gray-200 rounded-xl">
+            <a href="{% url 'chat:room' room.uuid %}" class="mt-4 inline-block py-2 px-6 bg-custom-button dark:border dark:border-stone-400 text-white dark:text-gray-600 dark:bg-gray-200 rounded-xl">
                 {% if room.status == 'waiting' %}
                     Join
                 {% elif room.status == 'closed' %}

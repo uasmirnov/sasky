@@ -1,16 +1,7 @@
-/**
- * Variables
- */
-
 let chatName = ''
 let chatSocket = null
 let chatWindowUrl = window.location.href
 let chatRoomUuid = Math.random().toString(36).slice(2, 12)
-
-
-/**
- * Elements
- */
 
 const chatElement = document.querySelector('#chat')
 const chatOpenElement = document.querySelector('#chat_open')
@@ -22,11 +13,6 @@ const chatNameElement = document.querySelector('#chat_name')
 const chatLogElement = document.querySelector('#chat_log')
 const chatInputElement = document.querySelector('#chat_message_input')
 const chatSubmitElement = document.querySelector('#chat_message_submit')
-
-
-/**
- * Functions
- */
 
 function scrollToBottom() {
     chatLogElement.scrollTop = chatLogElement.scrollHeight
@@ -173,10 +159,6 @@ async function joinChatRoom() {
         console.log('onClose - chat socket was closed')
     }
 }
-
-/**
- * Event listeners
- */
 
 chatOpenElement.onclick = function (e) {
     e.preventDefault()
