@@ -50,11 +50,11 @@ function onChatMessage(data) {
         if (!data.agent) {
             chatLogElement.innerHTML += `
                 <div class="flex w-full mt-2 space-x-3 max-w-md">
-                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300 text-center pt-2">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300 dark:bg-gray-200 text-center pt-2">
                         ${data.initials}
                     </div>
                     <div>
-                        <div class="bg-gray-300 p-3 rounded-l-lg rounded-br-lg">
+                        <div class="bg-gray-300 dark:bg-gray-200 p-3 rounded-l-lg rounded-br-lg">
                             <p class="text-sm">${data.message}</p>
                         </div>
                         <span class="text-xs text-gray-500 dark:text-gray-300 leading-none">
@@ -74,7 +74,7 @@ function onChatMessage(data) {
                             ${data.created_at} ago
                         </span>
                     </div>
-                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300 text-center pt-2">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300 dark:bg-gray-200 text-center pt-2">
                         ${data.initials}
                     </div>
                 </div>
@@ -88,7 +88,7 @@ function onChatMessage(data) {
                 tmpInfo.remove()
             }
 
-            chatLogElement.innerHTML += '<p class="mt-2 tmp-info text-xs justify-end">The client is typing...</p>'
+            chatLogElement.innerHTML += '<p class="mt-2 tmp-info text-xs justify-end dark:text-gray-300">The client is typing...</p>'
         }
     } else if (data.type === 'writing_unactive') {
         if (!data.agent) {

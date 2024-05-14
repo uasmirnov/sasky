@@ -65,8 +65,6 @@ function sendMessage() {
 }
 
 function onChatMessage(data) {
-    console.log('onChatMessage', data)
-
     if (data.type === 'chat_message') {
         let tmpInfo = document.querySelector('.tmp-info')
 
@@ -77,14 +75,14 @@ function onChatMessage(data) {
         if (data.agent) {
             chatLogElement.innerHTML += `
                 <div class="flex w-full mt-2 space-x-3 max-w-md">
-                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300 text-center pt-2">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300 dark:bg-gray-200 dark:text-gray-700 text-center pt-2">
                         ${data.initials}
                     </div>
                     <div>
-                        <div class="bg-gray-300 p-3 rounded-l-lg rounded-br-lg">
-                            <p class="text-sm">${data.message}</p>
+                        <div class="bg-gray-300 dark:bg-gray-200 p-3 rounded-l-lg rounded-br-lg">
+                            <p class="text-sm dark:text-gray-700">${data.message}</p>
                         </div>
-                        <span class="text-xs text-gray-500 leading-none">
+                        <span class="text-xs leading-none text-gray-500 dark:text-gray-300">
                             ${data.created_at} ago
                         </span>
                     </div>
@@ -95,13 +93,13 @@ function onChatMessage(data) {
                 <div class="flex w-full mt-2 space-x-3 max-w-md ml-auto justify-end">
                     <div>
                         <div class="bg-blue-300 p-3 rounded-l-lg rounded-br-lg">
-                            <p class="text-sm">${data.message}</p>
+                            <p class="text-sm dark:text-gray-700">${data.message}</p>
                         </div>
-                        <span class="text-xs text-gray-500 leading-none">
+                        <span class="text-xs leading-none text-gray-500 dark:text-gray-300">
                             ${data.created_at} ago
                         </span>
                     </div>
-                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300 text-center pt-2">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300 dark:bg-gray-200 text-center dark:text-gray-700 pt-2">
                         ${data.initials}
                     </div>
                 </div>

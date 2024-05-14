@@ -20,13 +20,13 @@
         {% for message in room.messages.all %}
             <div class="flex w-full max-w-md mt-2 space-x-3 {% if message.created_by %}ml-auto justify-end{% endif %}">
                 {% if not message.created_by %}
-                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-200 text-center pt-2">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300 dark:bg-gray-200 text-center pt-2">
                         {{ message.sent_by|initials }}
                     </div>
                 {% endif %}
 
                 <div>
-                    <div class="p-3 rounded-l-lg rounded-br-lg {% if message.created_by %}bg-blue-300{% else %}bg-gray-300{% endif %}">
+                    <div class="p-3 rounded-l-lg rounded-br-lg {% if message.created_by %}bg-blue-300{% else %}bg-gray-300 dark:bg-gray-200{% endif %}">
                         <p class="text-sm">{{ message.body }}</p>
                     </div>
 
@@ -35,7 +35,7 @@
                     </span>
                 </div>
                 {% if message.created_by %}
-                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300 text-center pt-2">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-300 dark:bg-gray-200 text-center pt-2">
                         {{ message.sent_by|initials }}
                     </div>
                 {% endif %}
